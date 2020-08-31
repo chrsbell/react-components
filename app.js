@@ -14,14 +14,19 @@ class GroceryListItem extends React.Component {
     });
   };
 
+  onGroceryItemHover(event) {
+    this.setState({
+      done: !this.state.done
+    });
+  };
 
   render() {
     console.log(this.props.name);
     var style = {
-      textDecoration: this.state.done ? 'line-through' : 'none'
+      fontWeight: this.state.done ? 'bold' : 'normal'
     };
     return (
-      <li style={style} onClick={this.onGroceryItemClick.bind(this)}>
+      <li style={style} onMouseEnter={this.onGroceryItemHover.bind(this)} onMouseLeave={this.onGroceryItemHover.bind(this)}>
         {this.props.name}
       </li>
     );
