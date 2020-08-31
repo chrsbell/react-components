@@ -1,21 +1,26 @@
-var GroceryListItem = (props) => (
-  <li>{props.name}</li>
+var Bagel = () => (
+  <li>Bagel</li>
+);
+
+var Matcha = () => (
+  <li>Matcha</li>
 );
 
 debugger;
 
 var groceryItems = [];
-var Bagel = <GroceryListItem name='Bagel' />;
-var Matcha = <GroceryListItem name= 'Matcha' />;
 
-groceryItems.push(Bagel);
-groceryItems.push(Matcha);
+groceryItems.push(<Bagel />);
+groceryItems.push(<Matcha />);
 
 var GroceryList = (props) => (
-  <ul>
-    {props.groceryItems[0]}
-    {props.groceryItems[1]}
-  </ul>
+  <div>
+    <h1>Grocery List</h1>
+    <ul>
+      {props.groceryItems[0]}
+      {props.groceryItems[1]}
+    </ul>
+  </div>
 );
 
 var App = () => (
