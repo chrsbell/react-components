@@ -1,26 +1,34 @@
-var GroceryListItem = (props) => {
+class GroceryListItem extends React.Component {
 
-  var onGroceryItemClick = (event) => {
+  constructor(props) {
+    super(props);
+  };
+
+  onGroceryItemClick(event) {
     console.log('Item clicked!')
   };
 
-  return (
-    <li onClick={onGroceryItemClick}>{props.name}</li>
-  );
+  render() {
+    console.log(this.props.name);
+    return (
+      <li onClick={this.onGroceryItemClick}>
+        {this.props.name}
+      </li>
+    );
+  };
 };
 
 var groceryItems = [];
-var Bagel = <GroceryListItem name='Bagel' />;
-var Matcha = <GroceryListItem name= 'Matcha' />;
-groceryItems.push(Bagel);
-groceryItems.push(Matcha);
+groceryItems.push('Bagel');
+groceryItems.push('Matcha');
 
 var GroceryList = (props) => (
   <div>
     <h1>Grocery List</h1>
     <ul>
-      {props.groceryItems[0]}
-      {props.groceryItems[1]}
+      {props.groceryItems.map((item, index) =>
+        <GroceryListItem key={index} name={item} />
+      )}
     </ul>
   </div>
 );
