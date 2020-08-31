@@ -1,17 +1,19 @@
-var Bagel = () => (
-  <li>Bagel</li>
-);
+var GroceryListItem = (props) => {
 
-var Matcha = () => (
-  <li>Matcha</li>
-);
+  var onGroceryItemClick = (event) => {
+    console.log('Item clicked!')
+  };
 
-debugger;
+  return (
+    <li onClick={onGroceryItemClick}>{props.name}</li>
+  );
+};
 
 var groceryItems = [];
-
-groceryItems.push(<Bagel />);
-groceryItems.push(<Matcha />);
+var Bagel = <GroceryListItem name='Bagel' />;
+var Matcha = <GroceryListItem name= 'Matcha' />;
+groceryItems.push(Bagel);
+groceryItems.push(Matcha);
 
 var GroceryList = (props) => (
   <div>
@@ -24,7 +26,7 @@ var GroceryList = (props) => (
 );
 
 var App = () => (
-  <GroceryList groceryItems = {groceryItems} />
+  <GroceryList groceryItems={groceryItems} />
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));
